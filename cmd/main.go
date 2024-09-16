@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"github.com/kirkegaard/go-rle/pkg/rle"
-	"log"
 )
 
 func main() {
@@ -24,17 +23,11 @@ func main() {
 
 	if *encodeFlag != "" {
 		// Handle encoding
-		encoded, err := rle.Encode(*encodeFlag)
-		if err != nil {
-			log.Fatal(err)
-		}
+		encoded := rle.Encode(*encodeFlag)
 		fmt.Println(encoded)
 	} else if *decodeFlag != "" {
 		// Handle decoding
-		decoded, err := rle.Decode(*decodeFlag)
-		if err != nil {
-			log.Fatal(err)
-		}
+		decoded := rle.Decode(*decodeFlag)
 		fmt.Println(decoded)
 	}
 }
