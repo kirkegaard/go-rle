@@ -1,7 +1,6 @@
 package rle
 
 import (
-	"github.com/kirkegaard/go-rle"
 	"testing"
 )
 
@@ -16,10 +15,7 @@ func TestEncode(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		encoded, err := Encode(test.input)
-		if err != nil {
-			t.Fatalf("expected no error, but got %v", err)
-		}
+		encoded := Encode(test.input)
 		if encoded != test.expected {
 			t.Errorf("expected %s, but got %s", test.expected, encoded)
 		}
@@ -37,10 +33,7 @@ func TestDecode(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		decoded, err := Decode(test.input)
-		if err != nil {
-			t.Fatalf("expected no error, but got %v", err)
-		}
+		decoded := Decode(test.input)
 		if decoded != test.expected {
 			t.Errorf("expected %s, but got %s", test.expected, decoded)
 		}

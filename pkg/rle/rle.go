@@ -1,13 +1,12 @@
 package rle
 
 import (
-	"errors"
 	"strconv"
 )
 
-func rleEncode(input string) (string, error) {
+func Encode(input string) string {
 	if len(input) == 0 {
-		return "", errors.New("Input is empty")
+		return ""
 	}
 
 	result := ""
@@ -24,12 +23,12 @@ func rleEncode(input string) (string, error) {
 
 	result += strconv.Itoa(count) + string(input[len(input)-1])
 
-	return result, nil
+	return result
 }
 
-func rleDecode(input string) (string, error) {
+func Decode(input string) string {
 	if len(input) == 0 {
-		return "", errors.New("Input is empty")
+		return ""
 	}
 
 	result := ""
@@ -46,5 +45,5 @@ func rleDecode(input string) (string, error) {
 		}
 	}
 
-	return result, nil
+	return result
 }
