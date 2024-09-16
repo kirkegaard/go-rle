@@ -1,6 +1,7 @@
 package rle
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -16,9 +17,7 @@ func TestEncode(t *testing.T) {
 
 	for _, test := range tests {
 		encoded := Encode(test.input)
-		if encoded != test.expected {
-			t.Errorf("expected %s, but got %s", test.expected, encoded)
-		}
+		assert.Equal(t, test.expected, encoded, "Expected encoding to be %s, but got %s", test.expected, encoded)
 	}
 }
 
@@ -34,8 +33,6 @@ func TestDecode(t *testing.T) {
 
 	for _, test := range tests {
 		decoded := Decode(test.input)
-		if decoded != test.expected {
-			t.Errorf("expected %s, but got %s", test.expected, decoded)
-		}
+		assert.Equal(t, test.expected, decoded, "Expected decoding to be %s, but got %s", test.expected, decoded)
 	}
 }
