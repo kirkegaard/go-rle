@@ -1,2 +1,2 @@
 # go-rle
-RLE encoder and decoder for golang
+RLE (or Run-length encoding) encoder and decoder for golang
